@@ -17,9 +17,9 @@ class TaskController extends Controller
     }
 
     // show one task
-    public function show()
+    public function show(Task $task)
     {
-
+        return view('show', compact('task'));
     }
 
     // show page whit form for add task
