@@ -11,7 +11,7 @@ class TaskController extends Controller
     // show all tasks an homepage
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::take(10)->orderBy('updated_at', 'desc')->get();
 
         return view('index', compact('tasks'));
     }
@@ -29,9 +29,17 @@ class TaskController extends Controller
     }
 
     // store task in database
-    public function store()
+    public function store(Request $request)
     {
-        // store task in database
+        $validated = $request->validate([
+            'task' => 'required|min:15'
+        ]);
+
+        Task::create([
+            'task' => $validated['task']
+        ]);
+
+        return redirect()->route('tasks.home');
     }
 
     // show form for edit task
