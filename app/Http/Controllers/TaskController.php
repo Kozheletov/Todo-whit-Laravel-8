@@ -43,20 +43,27 @@ class TaskController extends Controller
     }
 
     // show form for edit task
-    public function edit()
+    public function edit(Task $task)
     {
-
+        return view('edit', compact('task'));
     }
 
     // update task
-    public function update()
+    public function update(Request $request, Task $task)
     {
+        $validated = $request->validate([
+            'task' => 'required|min:15'
+        ]);
+        $task->update(['task' => $validated['task']]);
 
+        return redirect()->route('tasks.home');
     }
 
     // delete task
-    public function delete()
+    public function delete(Task $task)
     {
+        $task->delete();
 
+        return redirect()->route('tasks.home');
     }
 }

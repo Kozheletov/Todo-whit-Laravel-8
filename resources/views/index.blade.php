@@ -13,7 +13,13 @@
             <ul class="flex flex-col md:flex-row">
                 <li class="ml-3 text-green-500"><a href="{{route('tasks.show',$task)}}">Show</a></li>
                 <li class="ml-3 text-yellow-500"><a href="{{route('tasks.edit',$task)}}">Edit</a></li>
-                <li class="ml-3 text-red-500"><a href="{{route('tasks.delete',$task)}}">Delete</a></li>
+                <li class="ml-3 text-red-500">
+                    <form action="{{route('tasks.delete',$task)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button>Delete</button>
+                    </form>
+                </li>
             </ul>
         </div>
     @empty
