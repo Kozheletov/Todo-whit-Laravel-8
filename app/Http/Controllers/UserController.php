@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -46,6 +47,25 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
+            $request->session()->regenerate();
+
+            return redirect()->route('tasks.home');
+        }
+
+        return back();
+    }
+
+    // method login
+    public function login()
+    {
+        return view('users.login');
+    }
+
+    // method auth
+    public function authenticate(LoginUserRequest $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->route('tasks.home');

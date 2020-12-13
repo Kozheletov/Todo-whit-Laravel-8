@@ -16,10 +16,10 @@
             <ul class="flex">
                 @auth
                     <li class="ml-3 text-xl text-white"><a href="">{{auth()->user()->name}}</a></li>
-                    <li class="ml-3 text-xl text-white"><a href="{{route('users.logout')}}">Logout</a></li>
+                    <li class="ml-3 text-xl text-white"><a href="{{route('logout')}}">Logout</a></li>
                 @endauth
                 @guest
-                    <li class="ml-3 text-xl text-white"><a href="">Login</a></li>
+                    <li class="ml-3 text-xl text-white"><a href="{{route('login')}}">Login</a></li>
                     <li class="ml-3 text-xl text-white"><a href="{{route('users.create')}}">Register</a></li>
                 @endguest
             </ul>
