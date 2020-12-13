@@ -13,19 +13,19 @@ class TaskController extends Controller
     {
         $tasks = Task::take(10)->orderBy('updated_at', 'desc')->get();
 
-        return view('index', compact('tasks'));
+        return view('tasks.index', compact('tasks'));
     }
 
     // show one task
     public function show(Task $task)
     {
-        return view('show', compact('task'));
+        return view('tasks.show', compact('task'));
     }
 
     // show page whit form for add task
     public function create()
     {
-        return view('create');
+        return view('tasks.create');
     }
 
     // store task in database
@@ -45,7 +45,7 @@ class TaskController extends Controller
     // show form for edit task
     public function edit(Task $task)
     {
-        return view('edit', compact('task'));
+        return view('tasks.edit', compact('task'));
     }
 
     // update task

@@ -7,8 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container 2xl mx-auto px-2">
-    <h1 class="text-center text-6xl text-blue-700">Hello, World!</h1>
+<div class="container mx-auto">
+    <header class="flex justify-between items-center px-2 py-4 bg-blue-600">
+        <a class="text-white focus:text-green-300 hover:text-green-300 text-3xl" href="{{route('tasks.home')}}">
+            Awesome todo!
+        </a>
+        <nav>
+            <ul class="flex">
+                <li class="ml-3 text-xl text-white"><a href="">Profile</a></li>
+                <li class="ml-3 text-xl text-white"><a href="">Login</a></li>
+                <li class="ml-3 text-xl text-white"><a href="{{route('users.create')}}">Register</a></li>
+                <li class="ml-3 text-xl text-white"><a href="">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <div class="max-w-5xl mx-auto mt-5">
 
