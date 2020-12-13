@@ -7,16 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreUserRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -24,7 +14,9 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'     => 'required|min:2|max:30',
+            'email'    => 'required|email',
+            'password' => 'required|min:6|max:40|confirmed'
         ];
     }
 }

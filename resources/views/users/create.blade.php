@@ -12,14 +12,18 @@
                 <input class="border-2 rounded-xl p-2 border-black @error('name') border-red-600 @enderror"
                        type="text"
                        name="name"
-                       id="name">
+                       id="name"
+                       value="{{old('name')}}">
+                @error('name') <span class="text-red-600">{{$message}}</span> @enderror
             </div>
             <div class="flex flex-col mb-4">
                 <label class="text-xl" for="email">Email</label>
                 <input class="border-2 rounded-xl p-2 border-black @error('email') border-red-600 @enderror"
                        type="email"
                        name="email"
-                       id="email">
+                       id="email"
+                       value="{{old('email')}}">
+                @error('email') <span class="text-red-600">{{$message}}</span> @enderror
             </div>
             <div class="flex flex-col mb-4">
                 <label class="text-xl" for="password">Password</label>
@@ -27,6 +31,7 @@
                        type="password"
                        name="password"
                        id="password">
+                @error('password') <span class="text-red-600">{{$message}}</span> @enderror
             </div>
             <div class="flex flex-col mb-4">
                 <label class="text-xl" for="password_confirmation">Password confirm</label>
@@ -34,6 +39,7 @@
                        type="password"
                        name="password_confirmation"
                        id="password_confirmation">
+                @error('password') <span class="text-red-600">{{$message}}</span> @enderror
             </div>
             <button type="submit" class="border-2 rounded-xl text-xl border-black px-5 py-2">Register</button>
         </form>
