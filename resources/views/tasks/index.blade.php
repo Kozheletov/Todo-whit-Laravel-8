@@ -5,7 +5,10 @@
     <div class="flex justify-between">
         <h2 class="text-2xl">Tasks list:</h2>
         @auth
-            <a class="text-xl text-white py-2 px-8 rounded-lg bg-yellow-900" href="{{route('tasks.create')}}">Add task</a>
+            <div>
+                <a class="text-xl text-white py-2 px-8 rounded-lg bg-yellow-900" href="{{route('tasks.create')}}">Add task</a>
+                <a class="text-xl text-white py-2 px-8 rounded-lg bg-yellow-900" href="{{route('users.index')}}">Show users</a>
+            </div>
         @endauth
     </div>
 
