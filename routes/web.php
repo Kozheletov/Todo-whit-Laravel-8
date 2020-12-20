@@ -21,4 +21,3 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/authenticate', [UserController::class, 'authenticate'])->name('auth');
 
 
-

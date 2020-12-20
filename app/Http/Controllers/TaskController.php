@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -36,7 +37,8 @@ class TaskController extends Controller
         ]);
 
         Task::create([
-            'task' => $validated['task']
+            'user_id' => $request->user()->id,
+            'task'    => $validated['task'],
         ]);
 
         return redirect()->route('tasks.home');

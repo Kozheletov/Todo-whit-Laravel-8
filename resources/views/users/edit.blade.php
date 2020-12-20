@@ -5,11 +5,11 @@
     <div class="max-w-3xl mx-auto">
 
         <div class="flex justify-between align-center">
-            <h2 class="text-2xl align-middle">Edit task</h2>
+            <h2 class="text-2xl align-middle">Edit profile</h2>
             <a href="{{route('tasks.home')}}" class="text-xl text-white py-2 px-8 rounded-lg bg-yellow-900">back</a>
         </div>
 
-        <form action="" method="POST">
+        <form action="{{route('users.update', $user)}}" method="POST">
             @csrf
             @method('PUT')
             <div class="flex flex-col mb-4">
