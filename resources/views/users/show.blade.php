@@ -23,9 +23,13 @@
         </tr>
         </tbody>
     </table>
-    <div class="mt-5 text-right">
-        <a class="border-2 border-yellow-800 p-2 text-yellow-500 rounded-md" href="{{route('users.edit', $user)}}">Delete profile</a>
-        <a class="border-2 border-yellow-800 p-2 text-red-500 rounded-md" href="{{route('users.edit', $user)}}">Edit profile</a>
+    <div class="mt-5 flex">
+        <form class="ml-auto" action="{{route('users.destroy', $user)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="border-2 border-yellow-800 p-2 text-yellow-500 rounded-md" type="submit">Delete user</button>
+        </form>
+        <a class="ml-2 border-2 border-yellow-800 p-2 text-red-500 rounded-md" href="{{route('users.edit', $user)}}">Edit profile</a>
     </div>
 
 @endsection
